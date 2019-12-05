@@ -18,14 +18,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Manager manager = new Manager();
     private General general = new General();
     private Vip vip = new Vip();
-   /* private Button mBtnLog, mBtnManage, mBtnWrite, mBtnRemove, mBtnRead;*/
+    /* private Button mBtnLog, mBtnManage, mBtnWrite, mBtnRemove, mBtnRead;*/
     private Button [] mBtnArray = new Button[5];
-/*
-    private String a = "a";
-    private String b = "a";
-    private String c = "a";
-    private String d = "a";
-*/
+    /*
+        private String a = "a";
+        private String b = "a";
+        private String c = "a";
+        private String d = "a";
+    */
     private String action[] = new String[4];
     private String act_msg[] = {"글쓰기","삭제","읽기","관리"};
 
@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (int j = 0; j < 5; j++) {
             mBtnArray[j] = (Button) findViewById(R.id.btn1 + j);
             mBtnArray[j].setOnClickListener(this);
-
         }
+
         mLogin = (EditText) findViewById(R.id.text_log);
        /* mBtnManage = (Button)findViewById(R.id.btn_manage);
         mBtnLog = (Button)findViewById(R.id.btn_log);
@@ -99,45 +99,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             case R.id.btn1:
-                   if(action[0].equals("YES")) {
-                       mManage.setText("글쓰기");
-                   }
-                   else {
-                       mManage.setText("글쓰기 못하지롱");
-                   }
-                   break;
+                if(action[0].equals("YES")) {
+                    mManage.setText("글쓰기");
+                }
+                else {
+                    mManage.setText("글쓰기 못하지롱");
+                }
+                break;
 
             case R.id.btn2:
-                   if(action[1].equals("YES")) {
-                       mManage.setText("삭제");
-                   }
-                   else {
-                       mManage.setText("삭제 못하지롱~");
-                   }
-                   break;
+                if(action[1].equals("YES")) {
+                    mManage.setText("삭제");
+                }
+                else {
+                    mManage.setText("삭제 못하지롱~");
+                }
+                break;
 
             case R.id.btn3 :
-                   if(action[2].equals("YES")) {
-                       mManage.setText("읽기");
-                   }
-                   else {
-                       mManage.setText("읽기 못하지롱!!");
-                   }
-                   break;
+                if(action[2].equals("YES")) {
+                    mManage.setText("읽기");
+                }
+                else {
+                    mManage.setText("읽기 못하지롱!!");
+                }
+                break;
 
             case R.id.btn4 :
-                   if(action[3].equals("YES")) {
-                       mManage.setText("관리");
-                   }
-                   else {
-                       mManage.setText("관리 못하지롱~");
-                   }
-                   break;
+                if(action[3].equals("YES")) {
+                    mManage.setText("관리");
+                }
+                else {
+                    mManage.setText("관리 못하지롱~");
+                }
+                break;
 
-               default :
-                   break;
-           }
-       }
+            default :
+                break;
+        }
+    }
 
 
     public void onDo(String write, String remove, String read, String mag){
