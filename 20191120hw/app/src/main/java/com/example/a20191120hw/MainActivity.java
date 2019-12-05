@@ -19,13 +19,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private General general = new General();
     private Vip vip = new Vip();
     /* private Button mBtnLog, mBtnManage, mBtnWrite, mBtnRemove, mBtnRead;*/
-    private Button [] mBtnArray = new Button[5];
-    /*
-        private String a = "a";
+   /*     private String a = "a";
         private String b = "a";
         private String c = "a";
-        private String d = "a";
-    */
+        private String d = "a";*/
+    private Button [] mBtnArray = new Button[5];
     private String action[] = new String[4];
     private String act_msg[] = {"글쓰기","삭제","읽기","관리"};
 
@@ -35,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         initGUI();
-
 
     }
 
@@ -53,10 +50,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLogin = (EditText) findViewById(R.id.text_log);
         mManage = (TextView) findViewById(R.id.text_power);
 
-        //this 뭐 적는거 있음
         manager.onMemberListener(this);
         general.onMemberListener(this);
         vip.onMemberListener(this);
+        member.onMemberListener(this);
+
 
          /* mBtnManage = (Button)findViewById(R.id.btn_manage);
         mBtnLog = (Button)findViewById(R.id.btn_log);
@@ -76,32 +74,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-            if(view.getId() == mBtnArray[4].getId()){
-                text_login = mLogin.getText().toString();
-                if (text_login.equals("일반회원")) {
-                    mManage.setText(text_login);
-                    general.Do();
-                } else if (text_login.equals("정회원")) {
-                    mManage.setText(text_login);
-                    vip.Do();
-                } else if (text_login.equals("관리자")) {
-                    mManage.setText(text_login);
-                    manager.Do();
-                } else {
-                    mManage.setText("로그인해!");
-                    //member.Do();
-                }
+        if (view.getId() == mBtnArray[4].getId()) {
+            text_login = mLogin.getText().toString();
+            if (text_login.equals("일반회원")) {
+                mManage.setText(text_login);
+                general.Do();
+            } else if (text_login.equals("정회원")) {
+                mManage.setText(text_login);
+                vip.Do();
+            } else if (text_login.equals("관리자")) {
+                mManage.setText(text_login);
+                manager.Do();
+            } else {
+                mManage.setText("로그인해!");
+                member.Do();
             }
-
-        for(int i=0;i<4;i++){
-            if(view.getId() == mBtnArray[i].getId()){
-                if (action[i].equals("YES")) {
-                    mManage.setText(act_msg[i]);
-                } else {
-                    mManage.setText(act_msg[i]+"못하지롱");
+        } else {
+            for (int i = 0; i < 4; i++) {
+                if (view.getId() == mBtnArray[i].getId()) {
+                    if (action[i].equals("YES")) {
+                        mManage.setText(act_msg[i]);
+                    } else {
+                        mManage.setText(act_msg[i] + "못하지롱");
+                    }
                 }
             }
         }
+    }
+
 
           /*  switch (view.getId()) {
 
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
             }*/
 
-    }
+
 
 
 
